@@ -1,39 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Portfolio</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Editor Portfolio</title>
+  <!-- Font Awesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Animate.css for smooth animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  
 </head>
 <body>
-    <header>
-        <h1>James Steve</h1>
-    </header>
-    <nav>
-        <a href="childs/home.html">Home</a>
-        <a href="childs/about.html">About</a>
-        <a href="childs/porfolio.html">Portfolio</a>
-        <a href="childs/contact.html">Contact</a>
+  <!-- Header with Hamburger Menu -->
+  <header id="main-header">
+    <h1 class="animate__animated animate__fadeInLeft">Steve Works</h1>
+    <nav id="menu">
+      <a href="#about" class="animate__animated animate__fadeIn">About Me</a>
+      <a href="#experience" class="animate__animated animate__fadeIn animate__delay-1s">Experience</a>
+      <a href="#portfolio" class="animate__animated animate__fadeIn animate__delay-2s">Portfolio</a>
+      <a href="#contact" class="animate__animated animate__fadeIn animate__delay-3s">Contact</a>
     </nav>
-    <div class="container">
-        <div class="portfolio-item">
-            <img src="js.jpg" alt="Project 1">
-            <h2>Project 1</h2>
-            <p>Description of Project 1</p>
-        </div>
-        <div class="portfolio-item">
-            <img src="js.jpg" alt="Project 2">
-            <h2>Project 2</h2>
-            <p>Description of Project 2</p>
-        </div>
-        <div class="portfolio-item">
-            <img src="js.jpg" alt="Project 3">
-            <h2>Project 3</h2>
-            <p>Description of Project 3</p>
-        </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
-    <footer>
-        <p>&copy; 2024 james steve. All rights reserved.</p>
-    </footer>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h2 class="animate__animated animate__fadeInDown">Hi, I'm a Video Editor</h2>
+    <p class="animate__animated animate__fadeInUp animate__delay-1s">Creating cinematic edits and storytelling through visuals.</p>
+  </div>
+
+  <!-- Enhanced About Me Section -->
+  <section class="section" id="about">
+    <h3>About Me</h3>
+    <div class="about-content reveal">
+      <p>I'm a passionate visual storyteller who transforms raw footage into cinematic experiences. With an editor's eye for rhythm and a director's sense of narrative, I specialize in creating emotionally compelling content that captivates audiences.</p>
+      <p>Whether it's a music video that makes hearts race or a documentary that sparks conversation, I believe every frame should serve the story. My approach combines technical precision with artistic intuition - cutting not just for continuity, but for emotional impact.</p>
+    </div>
+  </section>
+
+  <!-- Enhanced Experience Section with Skill Bars -->
+  <section class="section" id="experience">
+    <h3>Experience & Skills</h3>
+    <div class="reveal">
+      <div class="about-content">
+        <p>With 5+ years of professional editing experience, I've honed my craft across diverse projects including music videos, short films, commercials, and social content. I thrive in collaborative environments where creative vision meets technical execution.</p>
+      </div>
+      
+      <div class="skills-container">
+        <div class="skill-item">
+          <div class="skill-header">
+            <span class="skill-name">Adobe Premiere Pro</span>
+            <span class="skill-percent">0%</span> <!-- Start at 0% -->
+          </div>
+          <div class="skill-bar">
+            <div class="skill-level" data-percent="92"></div> <!-- Add data-percent attribute -->
+          </div>
+        </div>
+        <!-- Repeat for other skills with their respective percentages -->
+      </div>
+        
+        <div class="skills-container">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Adobe After Effects</span>
+              <span class="skill-percent">0%</span> <!-- Start at 0% -->
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" data-percent="87"></div> <!-- Add data-percent attribute -->
+            </div>
+          </div>
+          <!-- Repeat for other skills with their respective percentages -->
+        </div>
+        
+        <div class="skills-container">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Adobe Photoshop</span>
+              <span class="skill-percent">0%</span> <!-- Start at 0% -->
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" data-percent="75"></div> <!-- Add data-percent attribute -->
+            </div>
+          </div>
+          <!-- Repeat for other skills with their respective percentages -->
+        </div>
+        
+        <div class="skills-container">
+          <div class="skill-item">
+            <div class="skill-header">
+              <span class="skill-name">Davinci Resolve</span>
+              <span class="skill-percent">0%</span> <!-- Start at 0% -->
+            </div>
+            <div class="skill-bar">
+              <div class="skill-level" data-percent="40"></div> <!-- Add data-percent attribute -->
+            </div>
+          </div>
+          <!-- Repeat for other skills with their respective percentages -->
+        </div>
+      
+      <div class="about-content" style="margin-top: 40px;">
+        <p>My workflow combines these tools strategically - using Premiere for editing, After Effects for motion graphics, Photoshop for asset creation, and DaVinci for color grading when needed. I'm constantly expanding my skillset to bring more value to every project.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="section" id="portfolio">
+    <h3>Portfolio</h3>
+    <div class="portfolio-buttons reveal">
+      <button id="shortFormButton" class="active" onclick="toggleForm('short')">Short Form Portfolio</button>
+      <button id="longFormButton" onclick="toggleForm('long')">Long Form Portfolio</button>
+    </div>
+
+    <!-- Short Form Portfolio -->
+    <div class="gallery" id="short-form">
+      <div class="video-card reveal">
+        <h4>Music Video Edit</h4>
+        <iframe src="https://www.youtube.com/embed/PzVYkvGFvsc?si=oYw9jop1NstZ9gVX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>A high-energy music video edit with dynamic transitions and color grading that matches the artist's vibe.</p>
+      </div>
+      <div class="video-card reveal">
+        <h4>Travel Montage</h4>
+        <iframe src="https://www.youtube.com/embed/PzVYkvGFvsc?si=oYw9jop1NstZ9gVX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>Cinematic travel montage showcasing beautiful landscapes with smooth transitions and atmospheric sound design.</p>
+      </div>
+    </div>
+
+    <!-- Long Form Portfolio -->
+    <div class="gallery" id="long-form" style="display:none;">
+      <div class="video-card reveal">
+        <h4>Short Film Scene</h4>
+        <iframe src="https://www.youtube.com/embed/PzVYkvGFvsc?si=oYw9jop1NstZ9gVX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>A tense scene from a short film demonstrating pacing, continuity editing, and emotional impact.</p>
+      </div>
+      <div class="video-card reveal">
+        <h4>Documentary Edit</h4>
+        <iframe src="https://www.youtube.com/embed/PzVYkvGFvsc?si=oYw9jop1NstZ9gVX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>Documentary segment showing interview editing, b-roll integration, and narrative flow.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <h3>Let's Create Together</h3>
+    
+    <div class="social-section">
+      <p class="social-intro">The best way to reach me is through social media. I check my messages daily and would love to hear about your project!</p>
+      
+      <p class="social-cta">Send me a direct message and let's bring your vision to life!</p>
+      
+      <div class="social-container">
+        <div class="social-platform floating">
+          <div class="app-icon instagram-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="social-label">Instagram</div>
+          <div class="social-description">
+            DM me for quick responses and to see more of my recent work in my stories and posts!
+          </div>
+          <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-button instagram-button">Message on Instagram</a>
+        </div>
+        
+        <div class="social-platform floating" style="animation-delay: 0.3s;">
+          <div class="app-icon twitter-icon">
+            <i class="fab fa-twitter"></i>
+          </div>
+          <div class="social-label">Twitter (X)</div>
+          <div class="social-description">
+            Tweet at me or send a DM to discuss your project details and video editing needs!
+          </div>
+          <a href="https://twitter.com/yourprofile" target="_blank" class="social-button twitter-button">Message on Twitter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="animate__animated animate__fadeIn animate__delay-1s">
+    &copy; 2025 James Steve. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+  
 </body>
 </html>
