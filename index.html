@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Helps YouTube embeds get a valid referrer context (avoids Error 153 on some setups) -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="keywords" content="steveworks, james steve, video editor, youtube video editor, shorts video editor, short form content editing, gaming video editing">
   <meta name="description" content="Professional video editing portfolio showcasing cinematic reels, gaming content, YouTube edits, and viral short videos. High-quality video editing services by an experienced editor.">
 
@@ -12,6 +14,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <!-- Animate.css for smooth animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="preconnect" href="https://www.youtube-nocookie.com" crossorigin />
+  <link rel="preconnect" href="https://i.ytimg.com" />
+  <link rel="preconnect" href="https://www.google.com" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="/favicon.png" type="image/png">
   
@@ -33,6 +38,10 @@
       <div></div>
     </div>
   </header>
+
+  <div id="file-protocol-notice" class="file-protocol-notice" role="status" hidden>
+    <strong>Local file:</strong> YouTube often shows “Error 153” when the site is opened as <code>file://</code>. Run a tiny server in this folder, then open <code>http://localhost:3000</code> — for example in PowerShell: <code>npx --yes serve . -l 3000</code>. On GitHub Pages, embeds work without this step.
+  </div>
 
   <!-- Hero Section -->
   <div class="hero">
@@ -127,22 +136,22 @@
     <div class="gallery" id="short-form">
       <div class="video-card reveal">
         <h4>Funny gaming short video edit</h4>
-        <iframe src="https://youtube.com/embed/OT10vOtbD1A?si=azJQOcEmr743BcbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/OT10vOtbD1A?si=azJQOcEmr743BcbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>FC 25 meme edit showcasing gameplay humor, reactions, and sound effects.</p>
       </div>
       <div class="video-card reveal">
         <h4>Travel Montage</h4>
-        <iframe src="https://www.youtube.com/embed/PzVYkvGFvsc?si=oYw9jop1NstZ9gVX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/PzVYkvGFvsc?si=oYw9jop1NstZ9gVX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>Cinematic travel montage showcasing beautiful landscapes with smooth transitions and atmospheric sound design.</p>
       </div>
       <div class="video-card reveal">
         <h4>product showcase short video edit</h4>
-        <iframe src="https://www.youtube.com/embed/O59asUb2l2g?si=iPTxzLk1pP-pfq1x" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/O59asUb2l2g?si=iPTxzLk1pP-pfq1x" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>product showcase video edit (color grading,subtiles, music, and sound effects).</p>
       </div>
        <div class="video-card reveal">
         <h4>short video engaging edit</h4>
-        <iframe src="https://www.youtube.com/embed/NB4xMykJPpk?si=QHDpkgfzsFxIKmVj" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/NB4xMykJPpk?si=QHDpkgfzsFxIKmVj" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>product showcase video edit (color grading,subtiles, music, and sound effects).</p>
       </div>
     </div>
@@ -151,42 +160,52 @@
     <div class="gallery" id="long-form" style="display:none;">
       <div class="video-card reveal">
         <h4>Funny fast paced valorant edit</h4>
-        <iframe src="https://www.youtube.com/embed/TgkZmw8EWqw?si=wkp5q3nEpY03WYZz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/TgkZmw8EWqw?si=wkp5q3nEpY03WYZz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>Valorant meme edit showcasing clip timing, comedic pacing, and sound sync.</p>
       </div>
        <div class="video-card reveal">
         <h4>Simple animation edit</h4>
-        <iframe src="https://www.youtube.com/embed/tFGRwY-L724?si=qCE-1pCVv1x-IPBs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/tFGRwY-L724?si=qCE-1pCVv1x-IPBs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>Documentary segment showing interview editing, b-roll integration, and narrative flow.</p>
       </div>
       <div class="video-card reveal">
         <h4>Dmcumenteray video editing</h4>
-        <iframe src="https://drive.google.com/file/d/1oMWulhkX8f02XKfc0uLyvN8rDwc2-TKc/preview" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="video-embed video-embed--drive">
+          <button type="button" class="drive-poster" data-drive-id="1oMWulhkX8f02XKfc0uLyvN8rDwc2-TKc" aria-label="Load and play video from Google Drive">
+            <img src="https://drive.google.com/thumbnail?id=1oMWulhkX8f02XKfc0uLyvN8rDwc2-TKc&amp;sz=w1920" alt="" width="1920" height="1080" loading="lazy" decoding="async" fetchpriority="low" />
+            <span class="drive-poster__play" aria-hidden="true"></span>
+          </button>
+        </div>
         <p>Documentary segment showing interview editing, b-roll integration, and narrative flow.</p>
       </div>
       <div class="video-card reveal">
         <h4>Minecraft video introduction</h4>
-        <iframe src="https://www.youtube.com/embed/XF-0BqYtgY4?si=NOJmI2IKJAKfTfgH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/XF-0BqYtgY4?si=NOJmI2IKJAKfTfgH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>professional Minecraft intro edit with exciting visuals</p>
       </div>
       <div class="video-card reveal">
         <h4>Faceless motion graphics edit</h4>
-        <iframe src="https://www.youtube.com/embed/wbS21RjQyMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/wbS21RjQyMc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>Anime explanation edit highlighting narrative clarity, smooth transitions, and engaging voiceover pacing.</p>
       </div>
       <div class="video-card reveal">
         <h4>Funny fast paced edit</h4>
-        <iframe src="https://drive.google.com/file/d/1nCz8NXbu9A5bKtMPM_LQ1AOB0pwdeY7f/preview" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="video-embed video-embed--drive">
+          <button type="button" class="drive-poster" data-drive-id="1nCz8NXbu9A5bKtMPM_LQ1AOB0pwdeY7f" aria-label="Load and play video from Google Drive">
+            <img src="https://drive.google.com/thumbnail?id=1nCz8NXbu9A5bKtMPM_LQ1AOB0pwdeY7f&amp;sz=w1920" alt="" width="1920" height="1080" loading="lazy" decoding="async" fetchpriority="low" />
+            <span class="drive-poster__play" aria-hidden="true"></span>
+          </button>
+        </div>
         <p>Fast-paced edit with quick cuts, sharp comedic timing, and impactful motion graphics.</p>
       </div>
       <div class="video-card reveal">
         <h4>facless story telling video edit</h4>
-        <iframe src="https://www.youtube.com/embed/8ZwiujhxMrs?si=gKclLbZFU_2kEzEz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/8ZwiujhxMrs?si=gKclLbZFU_2kEzEz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>storytelling video edit with smooth and high quality motion graphic</p>
       </div>
        <div class="video-card reveal">
         <h4>facless gaming story telling video edit</h4>
-        <iframe src="https://www.youtube.com/embed/NdqkT7WKD9g?si=keSpj_SLjZLGdSBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/NdqkT7WKD9g?si=keSpj_SLjZLGdSBI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <p>gaming storytelling video edit with smooth and high quality motion graphic and monage</p>
       </div>
     </div>
@@ -229,13 +248,21 @@
 
   <!-- Footer -->
   <footer class="animate__animated animate__fadeIn animate__delay-1s">
-    &copy; 2025 James Steve. All rights reserved.
+    &copy; 2026 James Steve. All rights reserved.
   </footer>
 
   <script src="script.js"></script>
-  
+  <script>
+    (function () {
+      if (location.protocol === 'file:') {
+        var el = document.getElementById('file-protocol-notice');
+        if (el) el.hidden = false;
+      }
+    })();
+  </script>
 </body>
 </html>
+
 
 
 
