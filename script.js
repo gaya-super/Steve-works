@@ -97,7 +97,7 @@ function skillFlickerTick() {
     level.style.width = `${v}%`;
     percents[index].textContent = `${v}%`;
   });
-  const delay = randomBetween(85, 380);
+  const delay = randomBetween(500, 1000);
   skillFlickerTimeoutId = window.setTimeout(skillFlickerTick, delay);
 }
 
