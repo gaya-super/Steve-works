@@ -11,9 +11,20 @@ function initDrivePosters() {
     iframe.src = `https://drive.google.com/file/d/${id}/preview`;
     iframe.title = 'Google Drive video preview';
     iframe.loading = 'lazy';
+    iframe.className = 'drive-preview-iframe';
     iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
     iframe.allow = 'autoplay; fullscreen; encrypted-media; picture-in-picture';
     iframe.setAttribute('allowfullscreen', '');
+    Object.assign(iframe.style, {
+      position: 'absolute',
+      left: '0',
+      top: '0',
+      width: '100%',
+      height: '100%',
+      border: '0',
+      maxWidth: '100%',
+      maxHeight: '100%',
+    });
     wrap.replaceChildren(iframe);
   });
 }
