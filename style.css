@@ -244,6 +244,9 @@
   
   .skill-percent {
     color: var(--text-light);
+    font-variant-numeric: tabular-nums;
+    min-width: 3ch;
+    text-align: right;
   }
   
   .skill-bar {
@@ -258,8 +261,13 @@ height: 100%;
 background: linear-gradient(to right, var(--primary), var(--primary-light));
 border-radius: 5px;
 width: 0; /* Start at 0 width */
-transition: width 1s ease-out; /* Smooth animation */
+transition: width 1s ease-out; /* Smooth fill on first reveal */
 }
+
+  /* After initial fill: quick width steps for “live signal” style jitter */
+  #experience.skills-live .skill-level {
+    transition: width 0.11s linear;
+  }
 
   /* Portfolio Buttons */
   .portfolio-buttons {
@@ -733,25 +741,8 @@ transition: width 1s ease-out; /* Smooth animation */
     transition: none !important;
   }
 
-  .video-card:hover {
-    transform: none;
-  }
-
-  .floating {
-    animation: none !important;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body {
-    scroll-behavior: auto;
-  }
-
-  .gallery,
-  .reveal,
-  .video-card,
-  .drive-poster,
-  .drive-poster__play {
+  .skill-level,
+  #experience.skills-live .skill-level {
     transition: none !important;
   }
 
