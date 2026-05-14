@@ -587,4 +587,8 @@ transition: width 1s ease-out; /* Smooth animation */
     .about-content, .skills-container {
       padding: 0 20px;
     }
+      iframe {
+  width: 100%;
+  height: 100%;
+}
   }
