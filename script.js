@@ -73,68 +73,72 @@ function toggleMenu() {
   hamburger.classList.toggle('active');
 }
 
-// Skill bar animation variables
-let skillAnimated = false;
-let lastScrollPosition = 0;
+// Skill bars: fill once when section is seen, then irregular ±1–2% “live meter” flicker (no reset to 0)
+let skillsFilled = false;
+let skillFlickerTimeoutId = null;
 
-// Animate skill bars to their full width
-function animateSkillBars() {
-  const skillLevels = document.querySelectorAll('.skill-level');
-  const skillPercents = document.querySelectorAll('.skill-percent');
-
-  skillLevels.forEach((level, index) => {
-    const percent = level.getAttribute('data-percent');
-    level.style.width = percent + '%';
-
-    let current = 0;
-    const target = parseInt(percent, 10);
-    const increment = target / 20;
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        clearInterval(timer);
-        current = target;
-      }
-      skillPercents[index].textContent = Math.floor(current) + '%';
-    }, 20);
-  });
-
-  skillAnimated = true;
+function getSkillElements() {
+  return {
+    levels: document.querySelectorAll('.skill-level'),
+    percents: document.querySelectorAll('.skill-percent'),
+  };
 }
 
-// Reset skill bars to 0
-function resetSkillBars() {
-  const skillLevels = document.querySelectorAll('.skill-level');
-  const skillPercents = document.querySelectorAll('.skill-percent');
+function randomBetween(min, max) {
+  return min + Math.random() * (max - min);
+}
 
-  skillLevels.forEach((level) => {
-    level.style.width = '0';
+function skillFlickerTick() {
+  const { levels, percents } = getSkillElements();
+  levels.forEach((level, index) => {
+    const base = parseInt(level.getAttribute('data-percent'), 10);
+    const delta = Math.floor(Math.random() * 5) - 2; // -2 .. +2
+    const v = Math.max(0, Math.min(100, base + delta));
+    level.style.width = `${v}%`;
+    percents[index].textContent = `${v}%`;
   });
+  const delay = randomBetween(85, 380);
+  skillFlickerTimeoutId = window.setTimeout(skillFlickerTick, delay);
+}
 
-  skillPercents.forEach((percent) => {
-    percent.textContent = '0%';
+function startSkillFlicker() {
+  if (skillFlickerTimeoutId !== null) return;
+  const exp = document.getElementById('experience');
+  if (exp) exp.classList.add('skills-live');
+  skillFlickerTick();
+}
+
+function fillSkillBarsOnce() {
+  if (skillsFilled) return;
+  const { levels, percents } = getSkillElements();
+  if (!levels.length) return;
+
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      levels.forEach((level, index) => {
+        const percent = level.getAttribute('data-percent');
+        level.style.width = `${percent}%`;
+        percents[index].textContent = `${percent}%`;
+      });
+      skillsFilled = true;
+
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduced) return;
+
+      window.setTimeout(startSkillFlicker, 1050);
+    });
   });
-
-  skillAnimated = false;
 }
 
 // Scroll reveal animation with skill bar handling
 function scrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
-  const currentScrollPosition = window.scrollY;
   const skillsSection = document.getElementById('experience');
   const skillsPosition = skillsSection.getBoundingClientRect().top;
   const windowHeight = window.innerHeight;
 
-  const scrollingDown = currentScrollPosition > lastScrollPosition;
-  lastScrollPosition = currentScrollPosition;
-
   if (skillsPosition < windowHeight - 100 && skillsPosition > -skillsSection.offsetHeight) {
-    if (scrollingDown && !skillAnimated) {
-      animateSkillBars();
-    } else if (!scrollingDown && skillAnimated) {
-      resetSkillBars();
-    }
+    fillSkillBarsOnce();
   }
 
   for (let i = 0; i < reveals.length; i++) {
